@@ -1,0 +1,8 @@
+Make nav bar
+Post schema
+Add post fourm
+Show posts on index page as a feed
+ability to like and save posts
+Dashboard with stats of user
+Implement registration tokens for admin accounts
+admin tool path 

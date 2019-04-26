@@ -3,8 +3,13 @@ var router = express.Router();
 const User = require('../../models/users');
 const bcrypt = require('bcryptjs');
 const passport = require('passport')
+
+
 router.get('/login', function (req, res, next) {
-    res.render('login');
+    const user = (req.user) ? req.user.name : "";
+    res.render('login', {
+        user
+    });
     console.log('hello from login route');
 });
 
@@ -76,7 +81,7 @@ router.post('/register', function (req, res, next) {
                         //Save user
                         newUser.save()
                             .then(user => {
-                                req.flash('success_msg', 'You have successfully logged in');
+                                req.flash('success_msg', 'You have successfully registered');
                                 res.redirect('/users/login');
                             })
                             .catch(err => console.log(err));
