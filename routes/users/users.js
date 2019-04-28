@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 const User = require('../../models/users');
 const bcrypt = require('bcryptjs');
-const passport = require('passport')
+const passport = require('passport');
 
 
 router.get('/login', function (req, res, next) {
@@ -30,7 +30,10 @@ router.get('/logout', (req, res) => {
 });
 
 router.get('/register', function (req, res, next) {
-    res.render('Register');
+    const user = (req.user) ? req.user.name : "";
+    res.render('Register', {
+        user
+    });
     console.log('hello from register route');
 });
 

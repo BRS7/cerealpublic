@@ -15,8 +15,14 @@ const PostSchema = new mongoose.Schema({
   },
   favorites: {
     type: Number,
-    default: Date.now
+    default: Date.now,
+    require: true
+  },
+  author: {
+    type: String,
+    required: true
   }
+
 });
 
 const Post = mongoose.model('Post', PostSchema);

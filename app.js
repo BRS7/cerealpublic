@@ -8,13 +8,15 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users/users');
 const flash = require('connect-flash');
 const session = require('express-session');
-const passport = require('passport')
+const passport = require('passport');
+const postsRouter = require('./routes/api/posts');
 
 var app = express();
 
 //Passort config
 require('./config/passport')(passport);
 
+//Mongo Atlas connect
 const db = require('./config/keys').MongoURI;
 mongoose.connect(db, { useNewUrlParser: true })
     .then(() => console.log('Mongodb connected'))
@@ -63,5 +65,6 @@ app.use(cookieParser());
 //apply routes
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/api/posts', postsRouter);
 
 module.exports = app;

@@ -20,11 +20,12 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
             <% if(user) { %>
-                <a href="/users/logout">Logout</a>
+                <a class="nav-item nav-link" href="/dashboard">Dashboard</a>
+                <a class="nav-item nav-link" href="/users/logout">Logout</a>
+            <% } else { %>
+                <a class="nav-item nav-link" href="/users/login">Login</a>
+                <a class="nav-item nav-link" href="/users/register">Register</a>
             <% } %>
-            <a class="nav-item nav-link" href="/users/login">Login</a>
-            <a class="nav-item nav-link" href="/users/register">Register</a>
-            <a class="nav-item nav-link" href="/dashboard">Dashboard</a>
         </div>
     </div>
     <form class="form-inline">
