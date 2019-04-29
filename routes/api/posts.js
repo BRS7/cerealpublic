@@ -5,4 +5,9 @@ var router = express.Router();
 router.get('/', (req, res, next) => {
     res.json('hello from posts route')
 });
+
+// router.get('/', (req, res, next) => {
+//     res.json('hello from posts route')
+// });
+
 module.exports = router

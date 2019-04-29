@@ -1,0 +1,46 @@
+var express = require('express');
+var router = express.Router();
+const Post = require('../../models/Posts');
+const {ensureAuthenticated, checkLogin} = require('../../config/auth');
+const passport = require('passport');
+
+router.get('/', ensureAuthenticated, (req, res) => {
+    const user = (req.user) ? req.user.name : ""; 
+    res.render('post', {
+        user
+    })
+});
+
+router.post('/', (req, res) => {
+    console.log(`aaaaaaaaaaaaaaaa ${req.user}`)
+    const {title, postBody} = req.body;
+    const author = req.user.name;
+    errors = [];
+    if(!title || !postBody){
+        errors.push({msg: "Please fill in both fields"});
+    }
+    if(errors.length > 0) {
+        return res.render('post',{
+            user: "temp",
+            errors,
+            title,
+            postBody
+        })
+    } else {
+        const newPost = new Post({
+            title,
+            content: postBody,
+            likes: 0,
+            favorites: 0,
+            author
+        });
+        newPost.save()
+            .then(post => {
+                req.flash('success_msg', 'Post successfull');
+                res.redirect('/')
+            })
+            .catch(err => console.log(err));
+    }
+});
+
+module.exports = router;

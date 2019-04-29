@@ -6,10 +6,12 @@ const expressLayouts = require('express-ejs-layouts')
 const mongoose = require('mongoose');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users/users');
+// const postsApiRouter = require('./routes/api/posts');
+const postsRouter = require('./routes/posts/posts');
 const flash = require('connect-flash');
 const session = require('express-session');
 const passport = require('passport');
-const postsRouter = require('./routes/api/posts');
+
 
 var app = express();
 
@@ -65,6 +67,7 @@ app.use(cookieParser());
 //apply routes
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/api/posts', postsRouter);
+// app.use('/api/posts', postsApiRouter);
+app.use('/post', postsRouter);
 
 module.exports = app;
