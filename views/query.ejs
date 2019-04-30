@@ -1,12 +1,7 @@
-<% if(user) { %>
-    <div class> <a href="/post">Create a post</a> </div>
-<% } else { %>
 
-<% } %>
-
-<% if(postsvar) { %>
-    <h1>Posts</h1>
-    <% postsvar.forEach(function(post){ %>
+<% if(docs.length > 0) { %>
+    <h3>Search Results</h3>
+    <% docs.forEach(function(post){ %>
         <div class="card mb-4">
             <!-- <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap"> -->
             <div class="card-body">
@@ -21,5 +16,6 @@
 
     <% }); %>
         
+<% } else { %>
+    <h3>No results found</h3>
 <% } %>
-

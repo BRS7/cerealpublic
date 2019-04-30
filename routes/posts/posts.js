@@ -12,7 +12,7 @@ router.get('/', ensureAuthenticated, (req, res) => {
 });
 
 router.post('/', (req, res) => {
-    console.log(`aaaaaaaaaaaaaaaa ${req.user}`)
+    console.log(`req.user is ${req.user}`)
     const {title, postBody} = req.body;
     const author = req.user.name;
     errors = [];
@@ -42,5 +42,6 @@ router.post('/', (req, res) => {
             .catch(err => console.log(err));
     }
 });
+
 
 module.exports = router;

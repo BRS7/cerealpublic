@@ -6,3 +6,5 @@ ability to like and save posts
 Dashboard with stats of user
 Implement registration tokens for admin accounts
 admin tool path 
+limit post body size
+search path and query

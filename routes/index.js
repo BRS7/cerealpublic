@@ -7,15 +7,27 @@ const util = require('util');
 /* GET home page. */
 router.get('/', function (req, res, next) {
   const user = (req.user) ? req.user.name : "";
-
-  const posts = Posts.find({}, (err, posts) => {
-    const postsvar = posts;
-    res.render('index', {
-      user,
-      postsvar
+  if (req.query.search){
+    const searchQuery = req.query.search;
+    Posts.find({$or:[{"author":{ "$regex": searchQuery, "$options": "i" }},{"title": {"$regex": searchQuery, "$options": "i"}},{"content": {"$regex": searchQuery, "$options": "i"}}]},
+      function(err,docs) {
+        console.log(docs);
+        res.render('query',{
+          docs,
+          user
+        });
     });
-  });
+  } else {
+    const posts = Posts.find({}, (err, posts) => {
+      const postsvar = posts;
+      res.render('index', {
+        user,
+        postsvar
+      });
+    });
+  }
 });
+  
 
 router.get('/dashboard', ensureAuthenticated, function (req, res, next) {
   const user = (req.user) ? req.user.name : "";
