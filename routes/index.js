@@ -1,11 +1,13 @@
 var express = require('express');
 var router = express.Router();
-const Posts = require('../models/Posts.js');
+// const Posts = require('../models/Posts');
+const Posts = require('./Posts');
 const { ensureAuthenticated, checkLogin } = require('../config/auth');
 const util = require('util');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
+  console.log(__dirname);
   const user = (req.user) ? req.user.name : "";
   if (req.query.search){
     const searchQuery = req.query.search;
