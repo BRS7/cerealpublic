@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const Posts = require('../models/Posts');
+const Posts = require('../models/Posts.js');
 const { ensureAuthenticated, checkLogin } = require('../config/auth');
 const util = require('util');
 
