@@ -43,5 +43,16 @@ router.post('/', (req, res) => {
     }
 });
 
+router.get('/:id', (req,res) => {
+    const user = (req.user) ? req.user.name : ""; 
+    const id = req.params.id;
+    Post.findById(id, function (err, post) { 
+        res.render('showPost', {
+            user,
+            post
+        })
+     });
+})
+
 
 module.exports = router;

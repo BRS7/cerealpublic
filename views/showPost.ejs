@@ -1,12 +1,5 @@
-<% if(user) { %>
-    <div class> <a href="/post">Create a post</a> </div>
-<% } else { %>
-
-<% } %>
-
-<% if(postsvar) { %>
+<% if(post) { %>
     <h1>Posts</h1>
-    <% postsvar.forEach(function(post){ %>
         <div class="card mb-4">
             <!-- <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap"> -->
             <div class="card-body">
@@ -18,8 +11,5 @@
               <a href="#"><%= post.author %></a>
             </div>
           </div>
-
-    <% }); %>
-        
 <% } %>
 
