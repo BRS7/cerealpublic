@@ -29,7 +29,7 @@ router.get('/logout', (req, res) => {
 
 router.get('/register', function (req, res, next) {
     const user = (req.user) ? req.user.name : "";
-    res.render('Register', {
+    res.render('register', {
         user
     });
 });
