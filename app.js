@@ -6,7 +6,6 @@ const expressLayouts = require('express-ejs-layouts')
 const mongoose = require('mongoose');
 const indexRouter = require('/app/routes/index');
 const usersRouter = require('/app/routes/users/users');
-// const postsApiRouter = require('./routes/api/postsApi');
 const postsRouter = require('/app/routes/posts/posts');
 const flash = require('connect-flash');
 const session = require('express-session');
