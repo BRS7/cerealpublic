@@ -4,10 +4,10 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const expressLayouts = require('express-ejs-layouts')
 const mongoose = require('mongoose');
-const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users/users');
+const indexRouter = require('/app/routes/index');
+const usersRouter = require('/app/routes/users/users');
 // const postsApiRouter = require('./routes/api/postsApi');
-const postsRouter = require('./routes/posts/posts');
+const postsRouter = require('/app/routes/posts/posts');
 const flash = require('connect-flash');
 const session = require('express-session');
 const passport = require('passport');
@@ -16,10 +16,10 @@ const passport = require('passport');
 var app = express();
 
 //Passort config
-require('./config/passport')(passport);
+require('/app/config/passport')(passport);
 
 //Mongo Atlas connect
-const db = require('./config/keys').MongoURI;
+const db = require('/app/config/keys').MongoURI;
 mongoose.connect(db, { useNewUrlParser: true })
     .then(() => console.log('Mongodb connected'))
     .catch(err => console.log(err));

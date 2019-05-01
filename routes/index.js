@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
-const Posts = require('../models/Posts');
-const { ensureAuthenticated, checkLogin } = require('../config/auth');
+const Posts = require('/app/models/Posts');
+const { ensureAuthenticated, checkLogin } = require('/app/config/auth');
 const util = require('util');
 
 /* GET home page. */

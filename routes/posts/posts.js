@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
-const Post = require('../../models/Posts');
-const {ensureAuthenticated, checkLogin} = require('../../config/auth');
+const Post = require('/app/models/Posts');
+const {ensureAuthenticated, checkLogin} = require('/app/config/auth');
 const passport = require('passport');
 
 router.get('/', ensureAuthenticated, (req, res) => {
