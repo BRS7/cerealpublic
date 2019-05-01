@@ -15,12 +15,15 @@ const PostSchema = new mongoose.Schema({
   },
   favorites: {
     type: Number,
-    default: Date.now,
     require: true
   },
   author: {
     type: String,
     required: true
+  },
+  date:{
+    type: String,
+    default: Date.now,
   }
 });
 

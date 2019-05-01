@@ -1,11 +1,15 @@
+
 <% if(user) { %>
-    <div class> <a href="/post">Create a post</a> </div>
+  <div class="pt-3 pb-1 inline"></div>
+    <a href="/post"><button class="btn btn-success my-2 my-sm-0" type="submit">New Post</button></a>
+  </div>
 <% } else { %>
 
 <% } %>
+  
 
 <% if(postsvar) { %>
-    <h1>Posts</h1>
+    
     <% postsvar.forEach(function(post){ %>
         <div class="card mb-4">
             <!-- <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap"> -->
@@ -14,12 +18,10 @@
               <p class="card-text"><%= post.content %></p>
             </div>
             <div class="card-footer text-muted">
-              Posted on January 1, 2017 by
+                Posted on <%= post.date %>
               <a href="#"><%= post.author %></a>
             </div>
           </div>
-
     <% }); %>
-        
 <% } %>
 

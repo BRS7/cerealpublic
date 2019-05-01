@@ -26,12 +26,15 @@ router.post('/', (req, res) => {
             postBody
         })
     } else {
+        const date = new Date().toLocaleString();
+        console.log(`date ${date}`)
         const newPost = new Post({
             title,
             content: postBody,
             likes: 0,
             favorites: 0,
-            author
+            author,
+            date: date
         });
         newPost.save()
             .then(post => {
