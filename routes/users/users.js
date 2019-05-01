@@ -1,7 +1,5 @@
 var express = require('express');
 var router = express.Router();
-console.log("logtest");
-console.log(__dirname);
 const User = require('../../models/Users');
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
@@ -11,7 +9,6 @@ router.get('/login', function (req, res, next) {
         res.render('login', {
         user
     });
-    console.log('hello from login route');
 });
 
 //Handle Login
@@ -35,7 +32,6 @@ router.get('/register', function (req, res, next) {
     res.render('Register', {
         user
     });
-    console.log('hello from register route');
 });
 
 router.post('/register', function (req, res, next) {

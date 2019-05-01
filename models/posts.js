@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+delete mongoose.connection.models['Post'];
 const PostSchema = new mongoose.Schema({
   title: {
     type: String,

@@ -12,7 +12,6 @@ router.get('/', ensureAuthenticated, (req, res) => {
 });
 
 router.post('/', (req, res) => {
-    console.log(`req.user is ${req.user}`)
     const {title, postBody} = req.body;
     const author = req.user.name;
     errors = [];

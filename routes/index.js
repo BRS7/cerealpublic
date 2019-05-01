@@ -7,13 +7,11 @@ const util = require('util');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  console.log(__dirname);
   const user = (req.user) ? req.user.name : "";
   if (req.query.search){
     const searchQuery = req.query.search;
     Posts.find({$or:[{"author":{ "$regex": searchQuery, "$options": "i" }},{"title": {"$regex": searchQuery, "$options": "i"}},{"content": {"$regex": searchQuery, "$options": "i"}}]},
       function(err,docs) {
-        console.log(docs);
         res.render('query',{
           docs,
           user
