@@ -1,5 +1,7 @@
 var express = require('express');
 var router = express.Router();
+console.log("logtest");
+console.log(__dirname);
 const User = require('../../models/Users');
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
